@@ -1117,6 +1117,21 @@ M.n_stage_unstaged = function(self)
   end)
 end
 
+
+---@param self StatusBuffer
+M.n_stage_line = function(self)
+  return a.void(function()
+    local stagable = self.buffer.ui:get_hunk_or_filename_under_cursor()
+    if not stagable or not stagable.hunk then return end
+    local item = self.buffer.ui:get_item_under_cursor()
+    local line_info = self.buffer.ui:get_cursor_location()
+    local line_index = line_info.hunk_offset + 1
+    local patch = git.index.generate_patch(item, stagable.hunk, line_index, line_index)
+    git.index.apply(patch, { cached = true })
+    self:dispatch_refresh({ update_diffs = { "*:" .. item.name } }, "n_stage_line")
+  end)
+end
+
 ---@param self StatusBuffer
 M.n_unstage = function(self)
   return a.void(function()

@@ -164,6 +164,7 @@ function M:open(kind)
         [mappings["Stage"]]                     = self:_action("n_stage"),
         [mappings["StageAll"]]                  = self:_action("n_stage_all"),
         [mappings["StageUnstaged"]]             = self:_action("n_stage_unstaged"),
+        [mappings["StageLine"]]                 = self:_action("n_stage_line"),
         [mappings["Unstage"]]                   = self:_action("n_unstage"),
         [mappings["UnstageStaged"]]             = self:_action("n_unstage_staged"),
         [mappings["GoToFile"]]                  = self:_action("n_goto_file"),
