@@ -191,6 +191,7 @@ end
 ---| "Discard"
 ---| "Stage"
 ---| "StageUnstaged"
+---| "StageLine"
 ---| "StageAll"
 ---| "Unstage"
 ---| "UnstageStaged"
@@ -612,6 +613,7 @@ function M.get_default_values()
         ["x"] = "Discard",
         ["s"] = "Stage",
         ["S"] = "StageUnstaged",
+        ["L"] = "StageLine",
         ["<c-s>"] = "StageAll",
         ["u"] = "Unstage",
         ["K"] = "Untrack",
